@@ -1,0 +1,459 @@
+.page {
+  --gray-rgb: 0, 0, 0;
+  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
+  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
+
+  --button-primary-hover: #383838;
+  --button-secondary-hover: #f2f2f2;
+
+  display: grid;
+  grid-template-rows: 20px 1fr 20px;
+  align-items: center;
+  justify-items: center;
+  min-height: 100svh;
+  padding: 80px;
+  gap: 64px;
+  font-family: var(--font-geist-sans);
+}
+
+@media (prefers-color-scheme: dark) {
+  .page {
+    --gray-rgb: 255, 255, 255;
+    --gray-alpha-200: rgba(var(--gray-rgb), 0.145);
+    --gray-alpha-100: rgba(var(--gray-rgb), 0.06);
+
+    --button-primary-hover: #ccc;
+    --button-secondary-hover: #1a1a1a;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  grid-row-start: 2;
+}
+
+.main ol {
+  font-family: var(--font-geist-mono);
+  padding-left: 0;
+  margin: 0;
+  font-size: 14px;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  list-style-position: inside;
+}
+
+.main li:not(:last-of-type) {
+  margin-bottom: 8px;
+}
+
+.main code {
+  font-family: inherit;
+  background: var(--gray-alpha-100);
+  padding: 2px 4px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.ctas {
+  display: flex;
+  gap: 16px;
+}
+
+.ctas a {
+  appearance: none;
+  border-radius: 128px;
+  height: 48px;
+  padding: 0 20px;
+  border: 1px solid transparent;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+}
+
+a.primary {
+  background: var(--foreground);
+  color: var(--background);
+  gap: 8px;
+}
+
+a.secondary {
+  border-color: var(--gray-alpha-200);
+  min-width: 158px;
+}
+
+.footer {
+  grid-row-start: 3;
+  display: flex;
+  gap: 24px;
+}
+
+.footer a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer img {
+  flex-shrink: 0;
+}
+
+/* Enable hover only on non-touch devices */
+@media (hover: hover) and (pointer: fine) {
+  a.primary:hover {
+    background: var(--button-primary-hover);
+    border-color: transparent;
+  }
+
+  a.secondary:hover {
+    background: var(--button-secondary-hover);
+    border-color: transparent;
+  }
+
+  .footer a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 32px;
+    padding-bottom: 80px;
+  }
+
+  .main {
+    align-items: center;
+  }
+
+  .main ol {
+    text-align: center;
+  }
+
+  .ctas {
+    flex-direction: column;
+  }
+
+  .ctas a {
+    font-size: 14px;
+    height: 40px;
+    padding: 0 16px;
+  }
+
+  a.secondary {
+    min-width: auto;
+  }
+
+  .footer {
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .logo {
+    filter: invert();
+  }
+}
+
+.hackerBg {
+  min-height: 100vh;
+  background: #0f2027; /* dark green/black gradient */
+  background: linear-gradient(135deg, #0f2027 0%, #2c5364 100%);
+}
+
+.hackerTitle {
+  color: #39ff14;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 2.5rem;
+  text-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14;
+  margin-bottom: 1rem;
+}
+
+.hackerSubtitle {
+  color: #00ffea;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.2rem;
+  text-shadow: 0 0 8px #00ffea;
+  margin-bottom: 2rem;
+}
+
+.neon {
+  color: #39ff14;
+  text-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14;
+}
+
+.hackerCard {
+  background: rgba(15, 32, 39, 0.95);
+  border: 1px solid #39ff14;
+  border-radius: 12px;
+  box-shadow: 0 0 20px #39ff14;
+  padding: 2rem 2.5rem;
+  margin: 2rem 0;
+  max-width: 400px;
+  width: 100%;
+}
+
+.hackerForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.hackerInput {
+  background: #181818;
+  border: 1px solid #39ff14;
+  color: #39ff14;
+  font-family: 'Share Tech Mono', monospace;
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  outline: none;
+  font-size: 1rem;
+  transition: border 0.2s;
+}
+.hackerInput:focus {
+  border: 1.5px solid #00ffea;
+}
+
+.hackerButton {
+  background: #39ff14;
+  color: #181818;
+  font-family: 'Share Tech Mono', monospace;
+  border: none;
+  border-radius: 6px;
+  padding: 0.8rem 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  box-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.hackerButton:hover {
+  background: #00ffea;
+  color: #0f2027;
+  box-shadow: 0 0 20px #00ffea;
+}
+
+.hackerNav {
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(15, 32, 39, 0.98);
+  border-bottom: 2px solid #39ff14;
+  box-shadow: 0 2px 20px #39ff1433;
+  padding: 0.7rem 2.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.hackerNavLogo {
+  color: #39ff14;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 2rem;
+  text-shadow: 0 0 10px #39ff14, 0 0 20px #39ff14;
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.hackerNavLinks {
+  display: flex;
+  gap: 2rem;
+}
+
+.hackerNavLinks a {
+  color: #00ffea;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.1rem;
+  text-shadow: 0 0 8px #00ffea;
+  text-decoration: none;
+  transition: color 0.2s, text-shadow 0.2s;
+}
+
+.hackerNavLinks a:hover {
+  color: #39ff14;
+  text-shadow: 0 0 12px #39ff14;
+}
+
+.heroSection {
+  width: 100%;
+  padding: 4rem 0 2rem 0;
+  text-align: center;
+}
+.heroTitle {
+  color: #39ff14;
+  font-size: 3rem;
+  font-family: 'Share Tech Mono', monospace;
+  text-shadow: 0 0 16px #39ff14, 0 0 32px #39ff14;
+  margin-bottom: 1rem;
+}
+.heroSubtitle {
+  color: #00ffea;
+  font-size: 1.3rem;
+  font-family: 'Share Tech Mono', monospace;
+  text-shadow: 0 0 8px #00ffea;
+  margin-bottom: 2.5rem;
+}
+.heroCtas {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.ctaButtonPrimary {
+  background: #39ff14;
+  color: #181818;
+  font-family: 'Share Tech Mono', monospace;
+  border: none;
+  border-radius: 8px;
+  padding: 0.9rem 2.2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  box-shadow: 0 0 16px #39ff14, 0 0 32px #39ff14;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.ctaButtonPrimary:hover {
+  background: #00ffea;
+  color: #0f2027;
+  box-shadow: 0 0 24px #00ffea;
+}
+.ctaButtonSecondary {
+  background: transparent;
+  color: #00ffea;
+  border: 1.5px solid #00ffea;
+  font-family: 'Share Tech Mono', monospace;
+  border-radius: 8px;
+  padding: 0.9rem 2.2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  box-shadow: 0 0 8px #00ffea;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+.ctaButtonSecondary:hover {
+  background: #00ffea;
+  color: #0f2027;
+  box-shadow: 0 0 24px #00ffea;
+}
+
+.introSection, .featuresSection, .valueSection, .testimonialsSection, .finalCtaSection {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto 2.5rem auto;
+  background: rgba(15,32,39,0.85);
+  border: 1.5px solid #39ff14;
+  border-radius: 16px;
+  box-shadow: 0 0 24px #39ff1433;
+  padding: 2.5rem 2rem;
+}
+.sectionHeading {
+  color: #39ff14;
+  font-size: 2rem;
+  font-family: 'Share Tech Mono', monospace;
+  margin-bottom: 1.2rem;
+  text-shadow: 0 0 10px #39ff14;
+}
+.sectionBody {
+  color: #00ffea;
+  font-size: 1.1rem;
+  font-family: 'Share Tech Mono', monospace;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 6px #00ffea;
+}
+.featuresList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #39ff14;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem 2.5rem;
+  justify-content: flex-start;
+}
+.featuresList li {
+  background: rgba(0,255,0,0.08);
+  border-left: 3px solid #39ff14;
+  padding: 0.7rem 1.2rem;
+  border-radius: 6px;
+  min-width: 220px;
+  box-shadow: 0 0 8px #39ff1433;
+}
+.valueSection {
+  border-color: #00ffea;
+  box-shadow: 0 0 24px #00ffea33;
+}
+.testimonialsSection {
+  border-color: #39ff14;
+  box-shadow: 0 0 24px #39ff1433;
+}
+.testimonialsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 1.2rem;
+}
+.testimonialsList blockquote {
+  color: #00ffea;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.1rem;
+  background: rgba(0,255,234,0.08);
+  border-left: 3px solid #00ffea;
+  padding: 0.7rem 1.2rem;
+  border-radius: 6px;
+  box-shadow: 0 0 8px #00ffea33;
+  margin: 0;
+}
+.finalCtaSection {
+  border-color: #39ff14;
+  box-shadow: 0 0 24px #39ff1433;
+  text-align: center;
+}
+
+.hackerFooter {
+  width: 100vw;
+  background: rgba(15, 32, 39, 0.98);
+  border-top: 2px solid #39ff14;
+  box-shadow: 0 -2px 20px #39ff1433;
+  color: #00ffea;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1rem;
+  padding: 1.2rem 2.5rem 1.2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+.footerLinks {
+  display: flex;
+  gap: 2rem;
+  margin-top: 0.2rem;
+}
+.footerLinks a {
+  color: #00ffea;
+  text-decoration: none;
+  font-size: 1.05rem;
+  transition: color 0.2s, text-shadow 0.2s;
+  text-shadow: 0 0 8px #00ffea;
+}
+.footerLinks a:hover {
+  color: #39ff14;
+  text-shadow: 0 0 12px #39ff14;
+}
